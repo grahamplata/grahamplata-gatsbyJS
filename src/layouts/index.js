@@ -1,64 +1,46 @@
-import React from 'react';
-import PropTypes from 'prop-types';
-import Link from 'gatsby-link';
-import Helmet from 'react-helmet';
+import React from 'react'
+import PropTypes from 'prop-types'
+import Link from 'gatsby-link'
+import Helmet from 'react-helmet'
+import Typography from 'typography'
 
-import './index.scss';
+// components
+import Navigation from '../components/Navigation/Navigation'
+import Footer from '../components/Footer/Footer'
 
-const Header = () => (
-	<div
-		style={{
-			background: 'rebeccapurple',
-			marginBottom: '1.45rem',
-		}}
-	>
-		<div
-			style={{
-				margin: '0 auto',
-				maxWidth: 960,
-				padding: '1.45rem 1.0875rem',
-			}}
-		>
-			<h1 style={{ margin: 0 }}>
-				<Link
-					to="/"
-					style={{
-						color: 'white',
-						textDecoration: 'none',
-					}}
-				>
-					Gatsby
-				</Link>
-			</h1>
-		</div>
-	</div>
-);
+// styless
+import 'bulma/css/bulma.css'
+import 'font-awesome/css/font-awesome.css'
+// style injection
+const typography = new Typography({
+  baseFontSize: '15px',
+  baseLineHeight: 1.2,
+  headerFontFamily: ['sans-serif', 'Helvetica Neue', 'Segoe UI', 'Helvetica', 'Arial'],
+  bodyFontFamily: ['sans-serif', 'serif'],
+})
 
 const TemplateWrapper = ({ children }) => (
-	<div>
-		<Helmet
-			title="Gatsby Default Starter"
-			meta={[
-				{ name: 'description', content: 'Sample' },
-				{ name: 'keywords', content: 'sample, something' },
-			]}
-		/>
-		<Header />
-		<div
-			style={{
-				margin: '0 auto',
-				maxWidth: 960,
-				padding: '0px 1.0875rem 1.45rem',
-				paddingTop: 0,
-			}}
-		>
-			{children()}
-		</div>
-	</div>
-);
+  <div>
+    <Helmet
+      title="Graham Plata's Digital Sandbox"
+      meta={[
+        { name: 'description', content: 'Sample' },
+        { name: 'keywords', content: 'sample, something' },
+      ]}
+      style={typography.injectStyles()}
+    />
+    <Navigation />
+    <section className="section">
+      <div className="container">
+        <div>{children()}</div>
+      </div>
+    </section>
+    <Footer />
+  </div>
+)
 
 TemplateWrapper.propTypes = {
-	children: PropTypes.func,
-};
+  children: PropTypes.func,
+}
 
-export default TemplateWrapper;
+export default TemplateWrapper

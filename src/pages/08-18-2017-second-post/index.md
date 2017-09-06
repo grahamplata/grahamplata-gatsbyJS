@@ -1,7 +1,7 @@
 ---
-path: "/hello-world"
-date: "2017-07-12T17:12:33.962Z"
-title: "My First Gatsby Post"
+path: "/second-post"
+date: "2017-08-18T17:12:33.962Z"
+title: "My Second Gatsby Post"
 ---
 
 # Illum rector custodia tu per iam habet

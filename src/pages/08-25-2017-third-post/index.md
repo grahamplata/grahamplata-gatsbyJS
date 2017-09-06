@@ -1,6 +1,6 @@
 ---
-path: "/hello-world3"
-date: "2017-07-12T17:12:33.962Z"
+path: "/third-post"
+date: "2017-08-25T17:12:33.962Z"
 title: "My Third Gatsby Post"
 ---
 
