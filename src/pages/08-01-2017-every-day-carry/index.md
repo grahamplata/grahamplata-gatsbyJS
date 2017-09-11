@@ -2,6 +2,7 @@
 path: "/every-day-carry"
 date: "2017-08-01"
 title: "The Everyday carry"
+tags: [EDC,blogging,first post,bag, gr2, leica, notebook, phone]
 ---
 
 # What is an Everyday carry?
