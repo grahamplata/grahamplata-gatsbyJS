@@ -6,12 +6,12 @@ module.exports = {
     `gatsby-plugin-react-helmet`,
     `gatsby-plugin-sass`,
     {
-      resolve: "gatsby-source-filesystem",
+      resolve: 'gatsby-source-filesystem',
       options: {
-        path: `${__dirname}/src/pages`,
-        name: "pages",
+        path: `${__dirname}/src/pages/posts`,
+        name: 'posts',
       },
     },
-    "gatsby-transformer-remark",
+    'gatsby-transformer-remark',
   ],
 }
