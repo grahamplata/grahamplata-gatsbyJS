@@ -1,13 +1,10 @@
-# gatsby-starter-default
-The default Gatsby starter
+# Graham Plata Personal Website `September 01, 2017`
 
-For an overview of the project structure please refer to the [Gatsby documentation - Building with Components](https://www.gatsbyjs.org/docs/building-with-components/)
+## Purpose
+Whenever I am learning something new I like to have a project to work on. As I strengthen my skills in Javascript I decided to build a personal website. The project is based off the default Gatsby starter.
 
-Install this starter (assuming Gatsby is installed) by running from your CLI:
-```
-gatsby new gatsby-example-site
-```
-
-## Deploy
-
-[![Deploy to Netlify](https://www.netlify.com/img/deploy/button.svg)](https://app.netlify.com/start/deploy?repository=https://github.com/gatsbyjs/gatsby-starter-default)
+## Technology
+- [React](https://facebook.github.io/react/) `JavaScript library for building user interfaces`
+- [GatsbyJS](https://www.gatsbyjs.org/) `A static PWA (Progressive Web App) generator`
+- [Bulma](http://bulma.io/) `A simple CSS framework`
+- [TypographyJS](https://kyleamathews.github.io/typography.js/) `A powerful toolkit for building websites with beautiful design.`

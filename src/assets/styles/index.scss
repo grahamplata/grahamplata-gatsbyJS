@@ -1,0 +1,21 @@
+.header-image {
+  background-image: url('../img/bg.jpg');
+  width: 100%;
+  height: auto;
+  background-image: contain;
+  background-position: 10% 55%;
+}
+
+.full-width {
+  width: 100vw;
+  position: relative;
+  left: 50%;
+  right: 50%;
+  margin-left: -50vw;
+  margin-right: -50vw;
+}
+
+.hero-scale {
+  margin-top: -45px;
+  height: 75vh;
+}

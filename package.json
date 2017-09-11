@@ -13,6 +13,7 @@
     "gatsby-plugin-sass": "^1.0.9",
     "gatsby-source-filesystem": "^1.4.9",
     "gatsby-transformer-remark": "^1.7.5",
+    "prop-types": "^15.5.10",
     "typography": "^0.16.6"
   },
   "scripts": {
