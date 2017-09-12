@@ -51,6 +51,7 @@ class Dota extends Component {
     const matches = this.state.matches.map(match => (
       <tr key={match.match_id}>
         <td>{moment.unix(match.start_time).fromNow()}</td>
+        <td>{this.setGameType(match.game_mode)}</td>
         <td>
           <i className={'d2mh hero-' + match.hero_id} />
         </td>
@@ -58,12 +59,11 @@ class Dota extends Component {
           <strong>{this.setHeroName(match.hero_id)}</strong> /{' '}
           <small>{this.setPlayerStatus(match.player_slot)}</small>
         </td>
-        <td>{this.setGameType(match.game_mode)}</td>
         <td>
           <a href={'https://www.opendota.com/matches/' + match.match_id}>{match.match_id}</a>
         </td>
         <td>{this.setWinner(match.radiant_win)}</td>
-        <td>{moment.duration(match.duration, 'seconds').minutes()} minutes</td>
+        <td>{moment.duration(match.duration, 'seconds').minutes()} min</td>
         <td>
           {match.kills} / {match.deaths} / {match.assists}
         </td>
@@ -83,13 +83,13 @@ class Dota extends Component {
                 <abbr title="When the match was played">Played</abbr>
               </th>
               <th>
+                <abbr title="Game type: ...">Game Type</abbr>
+              </th>
+              <th>
                 <abbr title="Hero Played">Icon</abbr>
               </th>
               <th>
                 <abbr title="Hero Played">Name</abbr>
-              </th>
-              <th>
-                <abbr title="Game type: ...">Game Type</abbr>
               </th>
               <th>
                 <abbr title="Dota 2 Match ID">MatchID</abbr>

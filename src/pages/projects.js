@@ -8,7 +8,11 @@ import Dota from '../components/Dota/Dota'
 const Projects = () => (
   <div>
     <h1>Projects</h1>
-    <Dota />
+    <div className="column">
+      <div className="column is-8 is-offset-2">
+        <Dota />
+      </div>
+    </div>
   </div>
 )
 
