@@ -10,12 +10,46 @@ class Dota extends Component {
   getLastMatchData(url) {
     axios.get(url).then(response => {
       this.setState({ matches: response.data })
-      console.log('Matches', this.state)
+      //   console.log('Matches', this.state)
     })
   }
 
   componentDidMount() {
-    this.getLastMatchData('https://api.opendota.com/api/players/29597998/matches?limit=3')
+    this.getLastMatchData('https://api.opendota.com/api/players/29597998/matches?limit=10')
+  }
+
+  setGameType(game) {
+    if (game == 22) {
+      return 'All Pick'
+    }
+  }
+
+  setWinner(match) {
+    if (match == true) {
+      return 'Radiant'
+    } else {
+      return 'Dire'
+    }
+  }
+
+  renderMatches() {
+    const matches = this.state.matches.map(match => (
+      <tr key={match.match_id}>
+        <td>{match.hero_id}</td>
+        <td>
+          <i className={'d2mh hero-' + match.hero_id} />
+        </td>
+        <td>{match.match_id}</td>
+        <td>{this.setGameType(match.game_mode)}</td>
+        <td>{this.setWinner(match.radiant_win)}</td>
+        <td>{match.duration}</td>
+        <td>{match.kills}</td>
+        <td>{match.deaths}</td>
+        <td>{match.assists}</td>
+      </tr>
+    ))
+
+    return matches
   }
 
   render() {
@@ -26,7 +60,7 @@ class Dota extends Component {
           <thead>
             <tr>
               <th>
-                <abbr title="Hero Played">Hero</abbr>
+                <abbr title="Hero Played">Name</abbr>
               </th>
               <th>
                 <abbr title="Hero Played">Hero</abbr>
@@ -54,23 +88,7 @@ class Dota extends Component {
               </th>
             </tr>
           </thead>
-          <tbody>
-            <tr>
-              <td>Faceless Void</td>
-              <td>
-                <i className="d2mh hero-41" />
-              </td>
-              <td>
-                <a href="#">3437077286</a>
-              </td>
-              <td>All Pick</td>
-              <td>Win / Radiant</td>
-              <td>37:23</td>
-              <td>10</td>
-              <td>7</td>
-              <td>19</td>
-            </tr>
-          </tbody>
+          <tbody>{this.renderMatches()}</tbody>
         </table>
       </div>
     )
