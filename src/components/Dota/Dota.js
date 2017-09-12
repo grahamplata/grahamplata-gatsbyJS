@@ -30,17 +30,15 @@ class Dota extends Component {
   setWinner(match) {
     if (match == true) {
       return 'Radiant'
-    } else {
-      return 'Dire'
     }
+    return 'Dire'
   }
 
   setPlayerStatus(slot) {
     if (slot >= 4) {
       return 'Dire'
-    } else {
-      return 'Radiant'
     }
+    return 'Radiant'
   }
 
   setHeroName(hero_id) {
@@ -53,14 +51,14 @@ class Dota extends Component {
         <td>{moment.unix(match.start_time).fromNow()}</td>
         <td>{this.setGameType(match.game_mode)}</td>
         <td>
-          <i className={'d2mh hero-' + match.hero_id} />
+          <i className={`d2mh hero-${match.hero_id}`} />
         </td>
         <td>
           <strong>{this.setHeroName(match.hero_id)}</strong> /{' '}
           <small>{this.setPlayerStatus(match.player_slot)}</small>
         </td>
         <td>
-          <a href={'https://www.opendota.com/matches/' + match.match_id}>{match.match_id}</a>
+          <a href={`https://www.opendota.com/matches/${match.match_id}`}>{match.match_id}</a>
         </td>
         <td>{this.setWinner(match.radiant_win)}</td>
         <td>{moment.duration(match.duration, 'seconds').minutes()} min</td>
