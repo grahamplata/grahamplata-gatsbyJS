@@ -4,7 +4,9 @@
   "private": true,
   "author": "Graham Plata <graham.plata@gmail.com>",
   "dependencies": {
+    "axios": "^0.16.2",
     "bulma": "^0.5.1",
+    "dota2-minimap-hero-sprites": "^2.0.0",
     "font-awesome": "^4.7.0",
     "gatsby": "^1.9.17",
     "gatsby-link": "^1.6.15",

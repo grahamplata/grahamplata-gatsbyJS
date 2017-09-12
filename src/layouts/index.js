@@ -10,7 +10,10 @@ import Footer from '../components/Footer/Footer'
 
 // styless
 import 'bulma/css/bulma.css'
+import 'bulma/css/bulma.css'
 import 'font-awesome/css/font-awesome.css'
+import 'dota2-minimap-hero-sprites/assets/stylesheets/dota2minimapheroes.css'
+
 // style injection
 const typography = new Typography({
   baseFontSize: '15px',

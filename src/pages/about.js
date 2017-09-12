@@ -1,8 +1,8 @@
 import React from 'react'
 import Link from 'gatsby-link'
 import Helmet from 'react-helmet'
-import profile from '../assets/img/profile.png'
 
+import profile from '../assets/img/profile.png'
 import '../assets/styles/about.scss'
 
 const About = () => (
@@ -71,30 +71,10 @@ const About = () => (
         </article>
       </div>
     </div>
-    <div className="tile is-parent">
-      <article className="tile is-child notification is-primary">
-        <h1>Some sort of Widget</h1>
-        <div className="content">
-          <p>
-            Lorem ipsum dolor sit amet consectetur adipiscing elit quis auctor arcu, nostra laoreet
-            interdum sagittis condimentum est tempus nulla a, etiam pharetra tellus class aenean
-            pulvinar dui primis feugiat. Bibendum porta tempor blandit eleifend phasellus dignissim
-            metus integer tristique non penatibus, urna scelerisque cubilia pharetra suspendisse sem
-            nunc egestas viverra venenatis, sociosqu primis conubia elementum euismod vitae odio
-            nulla purus ultrices. Etiam et dapibus mauris sapien quam taciti justo rhoncus fames
-            vehicula pulvinar, velit odio enim eu ut vulputate curae dictumst arcu.
-          </p>
-          <p>
-            Sociis ornare inceptos sodales lobortis integer etiam cras eros nunc malesuada consequat
-            turpis ut tortor vel, et curabitur venenatis porta mollis phasellus varius vitae morbi
-            vestibulum maecenas netus sed taciti. Viverra suscipit per pulvinar pellentesque quis
-            fringilla, vel dictumst conubia dignissim aliquam montes suspendisse, nisl facilisis
-            sociosqu cursus nostra sodales, magna tempor proin feugiat ligula. A purus suspendisse
-            facilisi sagittis vehicula cras turpis morbi dis dictumst vestibulum luctus vel
-            imperdiet viverra quis, mus montes mollis magna aenean massa convallis netus penatibus
-            eget habitant rutrum class nulla.
-          </p>
-        </div>
+    <div className="tile is-parent is-4">
+      <article className="tile is-child">
+        <h1>Something</h1>
+        <div className="content" />
       </article>
     </div>
   </div>
