@@ -35,26 +35,38 @@ class Dota extends Component {
     }
   }
 
-  setHeroName(hero_id){
-    return _.find(heroes.heroes, {id: hero_id}).localized_name
+  setPlayerStatus(slot) {
+    if (slot >= 4) {
+      return 'Dire'
+    } else {
+      return 'Radiant'
+    }
+  }
+
+  setHeroName(hero_id) {
+    return _.find(heroes.heroes, { id: hero_id }).localized_name
   }
 
   renderMatches() {
     const matches = this.state.matches.map(match => (
       <tr key={match.match_id}>
         <td>{moment.unix(match.start_time).fromNow()}</td>
-        <td>{this.setGameType(match.game_mode)}</td>
-        <td>{this.setHeroName(match.hero_id)}</td>
         <td>
           <i className={'d2mh hero-' + match.hero_id} />
         </td>
-        <td>{match.match_id}</td>
-        <td>{this.setWinner(match.radiant_win)} / Win</td>
+        <td>
+          <strong>{this.setHeroName(match.hero_id)}</strong> /{' '}
+          <small>{this.setPlayerStatus(match.player_slot)}</small>
+        </td>
+        <td>{this.setGameType(match.game_mode)}</td>
+        <td>
+          <a href={'https://www.opendota.com/matches/' + match.match_id}>{match.match_id}</a>
+        </td>
+        <td>{this.setWinner(match.radiant_win)}</td>
         <td>{moment.duration(match.duration, 'seconds').minutes()} minutes</td>
         <td>
           {match.kills} / {match.deaths} / {match.assists}
         </td>
-        
       </tr>
     ))
     return matches
@@ -64,20 +76,20 @@ class Dota extends Component {
     return (
       <div>
         <h1>Recent Dota 2 Matches</h1>
-        <table className="table">
+        <table className="table is-striped is-narrow">
           <thead>
             <tr>
               <th>
                 <abbr title="When the match was played">Played</abbr>
               </th>
               <th>
-                <abbr title="Game type: ...">Game Type</abbr>
+                <abbr title="Hero Played">Icon</abbr>
               </th>
               <th>
                 <abbr title="Hero Played">Name</abbr>
               </th>
               <th>
-                <abbr title="Hero Played">Icon</abbr>
+                <abbr title="Game type: ...">Game Type</abbr>
               </th>
               <th>
                 <abbr title="Dota 2 Match ID">MatchID</abbr>
