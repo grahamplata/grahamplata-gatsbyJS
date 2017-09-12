@@ -1,5 +1,8 @@
 import React, { Component } from 'react'
+import moment from 'moment'
 import axios from 'axios'
+import heroes from './heroes.json'
+import { findWhere } from 'lodash'
 
 class Dota extends Component {
   constructor(props) {
@@ -10,7 +13,7 @@ class Dota extends Component {
   getLastMatchData(url) {
     axios.get(url).then(response => {
       this.setState({ matches: response.data })
-      //   console.log('Matches', this.state)
+      console.log('Matches', this.state)
     })
   }
 
@@ -32,23 +35,28 @@ class Dota extends Component {
     }
   }
 
+  setHeroName(hero_id){
+    return _.find(heroes.heroes, {id: hero_id}).localized_name
+  }
+
   renderMatches() {
     const matches = this.state.matches.map(match => (
       <tr key={match.match_id}>
-        <td>{match.hero_id}</td>
+        <td>{moment.unix(match.start_time).fromNow()}</td>
+        <td>{this.setGameType(match.game_mode)}</td>
+        <td>{this.setHeroName(match.hero_id)}</td>
         <td>
           <i className={'d2mh hero-' + match.hero_id} />
         </td>
         <td>{match.match_id}</td>
-        <td>{this.setGameType(match.game_mode)}</td>
-        <td>{this.setWinner(match.radiant_win)}</td>
-        <td>{match.duration}</td>
-        <td>{match.kills}</td>
-        <td>{match.deaths}</td>
-        <td>{match.assists}</td>
+        <td>{this.setWinner(match.radiant_win)} / Win</td>
+        <td>{moment.duration(match.duration, 'seconds').minutes()} minutes</td>
+        <td>
+          {match.kills} / {match.deaths} / {match.assists}
+        </td>
+        
       </tr>
     ))
-
     return matches
   }
 
@@ -60,16 +68,19 @@ class Dota extends Component {
           <thead>
             <tr>
               <th>
-                <abbr title="Hero Played">Name</abbr>
-              </th>
-              <th>
-                <abbr title="Hero Played">Hero</abbr>
-              </th>
-              <th>
-                <abbr title="Dota 2 Match ID">MatchID</abbr>
+                <abbr title="When the match was played">Played</abbr>
               </th>
               <th>
                 <abbr title="Game type: ...">Game Type</abbr>
+              </th>
+              <th>
+                <abbr title="Hero Played">Name</abbr>
+              </th>
+              <th>
+                <abbr title="Hero Played">Icon</abbr>
+              </th>
+              <th>
+                <abbr title="Dota 2 Match ID">MatchID</abbr>
               </th>
               <th>
                 <abbr title="Result">Result</abbr>
@@ -78,17 +89,11 @@ class Dota extends Component {
                 <abbr title="Duration">Duration</abbr>
               </th>
               <th>
-                <abbr title="Kills with hero">Kills</abbr>
-              </th>
-              <th>
-                <abbr title="Deaths with hero">Deaths</abbr>
-              </th>
-              <th>
-                <abbr title="Assists with hero">Assists</abbr>
+                <abbr title="Kills Deaths Assists with hero">K / D / R</abbr>
               </th>
             </tr>
           </thead>
-          <tbody>{this.renderMatches()}</tbody>
+          <tbody>{this.renderMatches(heroes)}</tbody>
         </table>
       </div>
     )
